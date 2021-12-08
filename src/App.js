@@ -19,17 +19,20 @@ function App() {
         {
             id: 1,
             username: 'velopert',
-            email: 'public.velopert@gmail.com'
+            email: 'public.velopert@gmail.com',
+            active:true,
         },
         {
             id: 2,
             username: 'tester',
-            email: 'tester@example.com'
+            email: 'tester@example.com',
+            active:false,
         },
         {
             id: 3,
             username: 'liz',
-            email: 'liz@example.com'
+            email: 'liz@example.com',
+            active:false,
         }
     ]);
 
@@ -48,6 +51,13 @@ function App() {
         });
         nextId.current += 1;
     };
+
+    const onRemove = (id) => {
+        setUsers(users.filter( user => user.id !== id))
+        console.log(id)
+    }
+
+
     return (
         <>
             <CreateUser
@@ -56,7 +66,7 @@ function App() {
                 onChange={onChange}
                 onCreate={onCreate}
             />
-            <UserList users={users} />
+            <UserList users={users} onRemove={onRemove} />
         </>
     );
 }
