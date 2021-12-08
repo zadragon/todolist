@@ -33,6 +33,7 @@ function App() {
             username: 'liz',
             email: 'liz@example.com',
             active:false,
+
         }
     ]);
 
